@@ -93,6 +93,8 @@ class Board implements HTMLObject
 		$this->title	=	basename($this->path);
 		$this->header	=	new BoardHeader($this->title,$this->path);
 		$this->files	=	Menu::list_files($this->path);
+        natsort($this->files);
+        $this->files = array_reverse($this->files);
 		$this->dirs		=	Menu::list_dirs($this->path);
 
         $pageURL = Settings::$site_address."/?f=".urlencode(File::a2r($this->path));
