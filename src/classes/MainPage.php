@@ -139,14 +139,16 @@ class MainPage extends Page
 		$this->menu->toHTML();
 		echo "</div></div>\n";
 
-		echo "<a href='#menuright' class='menuright-link'><span></span></a>";
 		// Menu right
-		echo "<div id='menuright'>";
-		$this->menubar->toHTML();
-		echo "<div class='infos'>";
-		$this->infos->toHTML();
-		echo "</div>";
-		echo "</div>";
+        if(CurrentUser::$admin) {
+		echo "<a href='#menuright' class='menuright-link'><span></span></a>";
+            echo "<div id='menuright'>";
+            $this->menubar->toHTML();
+            echo "<div class='infos'>";
+            $this->infos->toHTML();
+            echo "</div>";
+            echo "</div>";
+        }
 
 
 		// Main page
