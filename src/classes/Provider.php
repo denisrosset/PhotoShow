@@ -219,7 +219,7 @@ class Provider
         $webimg = dirname($basepath) . "/" . $basefile->name . "_small." . $basefile->extension;
 
         list($x,$y) = getimagesize($file);
-        if($x <= 1200 && $y <= 1200){
+        if($x <= 1700 && $y <= 1700){
             return $file;
         }
 
@@ -236,8 +236,8 @@ class Provider
             $thumb->config_imagemagick_path = Settings::$imagemagick_path;
             $thumb->setSourceData(file_get_contents($file));
             $thumb->CalculateThumbnailDimensions();
-            $thumb->w = 1200;
-            $thumb->h = 1200;
+            $thumb->w = 1700;
+            $thumb->h = 1700;
             $thumb->q = Settings::$quality_small;
 
             if (File::Type($file) == 'Image' && Provider::get_orientation_degrees($file) != 0) {
