@@ -159,7 +159,7 @@ class Provider
 
         // We check that the thumb already exists, was created after the image, at the right size
         $goodThumb = false;
-        if (file_exists($path) && filectime($file) < filectime($path)) {
+        if (file_exists($path) && filectime($file) < filectime($path) + 5) {
             $dim = getimagesize($path);
             $goodThumb = ($dim[0] == Settings::$thumbs_size && $dim[1] == Settings::$thumbs_size );
         }
