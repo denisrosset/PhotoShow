@@ -81,7 +81,11 @@ class BoardItem implements HTMLObject
 
 		echo "<div class='item $lgcls pure-u-1-2 pure-u-sm-1-2 pure-u-md-1-3 pure-u-lg-1-4 pure-u-xl-1-8'>";
 		echo 	"<a href='?f=$this->file'>";
-		echo 	"<img src='?$getfile'>";
+		$thumb_file = Settings::$thumbs_dir . $decodedfile;
+		if( file_exists($thumb_file) )
+		    echo "<img src='$thumb_file'>";
+		else
+		    echo "<img src='?$getfile'>";
 		echo 	"</a>\n";
 		echo "</div>\n";
 
