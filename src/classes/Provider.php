@@ -300,6 +300,7 @@ class Provider
                     $path = Provider::small($file);
                 }
             }catch(Exception $e){
+	        error_log('ERROR/Provider:: image path:'.$path.' file:'.$file.' exception:'.$e);
                 // do nothing
             }
         }
